@@ -10,8 +10,8 @@ import (
 var DB *gorm.DB
 
 func InitDB() (*gorm.DB, error) {
-	dsn := "newuser:newpassword@tcp(127.0.0.1:3306)/webservice?charset=utf8mb4&parseTime=True&loc=Local"
-	// dsn := "root:p3ws@tcp(localhost:3306)/tokoku?charset=utf8mb4&parseTime=True&loc=Local"
+	// dsn := "newuser:newpassword@tcp(127.0.0.1:3306)/webservice?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:p3ws@tcp(localhost:3306)/tokoku?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		return nil, err
