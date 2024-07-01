@@ -24,7 +24,7 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host localhost:4111
+// @host localhost:4113
 // @BasePath /api/v1
 
 // @securityDefinitions.apikey BearerAuth
@@ -38,10 +38,13 @@ func main() {
 	app.Use(cors.New())
 
 	// Route to Swagger docs
-	app.Get("/swagger/*", swagger.HandlerDefault) // default
+	app.Get("/swagger/*", swagger.HandlerDefault) // use more specific route for Swagger
+
+	// Initialize other routes
+	routes.RouteInit(app)
 
 	// Example secure endpoint with JWT authentication
-	app.Get("/api/v1/secure-endpoint", middlewares.AuthMiddleware(), func(c *fiber.Ctx) error {
+	app.Get("/api/v1/", middlewares.AuthMiddleware(), func(c *fiber.Ctx) error {
 		// Token is valid, continue processing
 		user := c.Locals("user")
 		return c.JSON(fiber.Map{
@@ -49,9 +52,6 @@ func main() {
 			"user":    user,
 		})
 	})
-
-	// Initialize other routes
-	routes.RouteInit(app)
 
 	err := app.Listen(":4113")
 	if err != nil {

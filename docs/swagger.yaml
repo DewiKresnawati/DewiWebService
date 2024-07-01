@@ -90,7 +90,7 @@ definitions:
       name:
         type: string
     type: object
-host: localhost:4112
+host: localhost:4113
 info:
   contact:
     email: support@swagger.io
