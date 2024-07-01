@@ -15,7 +15,7 @@
         },
         "version": "1.0"
     },
-    "host": "localhost:4112",
+    "host": "localhost:4113",
     "basePath": "/api/v1",
     "paths": {
         "/categories": {
