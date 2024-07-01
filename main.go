@@ -38,7 +38,7 @@ func main() {
 	app.Use(cors.New())
 
 	// Route to Swagger docs
-	app.Get("*", swagger.HandlerDefault) // default
+	app.Get("/swagger/*", swagger.HandlerDefault) // default
 
 	// Example secure endpoint with JWT authentication
 	app.Get("/api/v1/secure-endpoint", middlewares.AuthMiddleware(), func(c *fiber.Ctx) error {
