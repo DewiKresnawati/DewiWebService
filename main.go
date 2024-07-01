@@ -24,7 +24,7 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host localhost:4113
+// @host localhost:4114
 // @BasePath /api/v1
 
 // @securityDefinitions.apikey BearerAuth
@@ -53,7 +53,7 @@ func main() {
 		})
 	})
 
-	err := app.Listen(":4113")
+	err := app.Listen(":4114")
 	if err != nil {
 		log.Fatal(err)
 	}
